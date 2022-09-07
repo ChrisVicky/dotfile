@@ -35,6 +35,8 @@ M.markdownPreview = {
   -- use custom ip to open preview page --> FOR detailed : "https://github.com/iamcco/markdown-preview.nvim/pull/9"
   vim.api.nvim_set_var('mkdp_echo_preview_url',1), -- Echo preview page url in command line
   -- vim.api.nvim_set_var('mkdp_browserfunc','g:Open_browser'),
+  vim.api.nvim_set_var('mkdp_markdown_css', '/home/christopher/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim/app/_static/mymarkdown.css'), -- Set css file -- Absolute path is required
+  vim.api.nvim_set_var('mkdp_browser', '/usr/bin/vimb'),
 }
 return M
 

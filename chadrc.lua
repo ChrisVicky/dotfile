@@ -13,8 +13,8 @@ M.plugins = {
   override = {
     ["nvim-treesitter/nvim-treesitter"] = pluginConfigs.treesitter,
     ["kyazdani42/nvim-tree.lua"] = pluginConfigs.nvimtree,
-    -- ["feline-nvim/feline.nvim"] = require("plugins.Astatusline"),
     ["iamcco/markdown-preview.nvim"] = pluginConfigs.markdownPreview,
+    
   },
   user = userPlugins,
   options = {

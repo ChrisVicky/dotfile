@@ -1,4 +1,8 @@
 local M = {}
+
+
+
+
 M.oldHabit = {
   n = {
     ["<C-left>"] = {":vertical resize +3<CR>", "Resize left"},
@@ -65,6 +69,21 @@ M.JumpBetweenWindows = {
       ["<Leader>lp"] = {"<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>","set breakpoint with condition and msg"},
       ["<Leader>dr"] = {"<Cmd>lua require'dap'.repl.open()<CR>",""},
       ["<Leader>dl"] = {"<Cmd>lua require'dap'.run_last()<CR>",""},
+    }
+  }
+
+  M.Esc = {
+    i = {
+      ["<C-w>"] = {"<esc>"},
+    }
+  }
+
+  M.NERDTree = {
+    i = {
+      ["<C-n>"] = {":NERDTreeToggle<CR>"},
+    },
+    n = {
+      ["<C-n>"] = {":NERDTreeToggle<CR>"},
     }
   }
 

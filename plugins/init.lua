@@ -1,5 +1,6 @@
 return {
   ["goolord/alpha-nvim"] = {
+
     disable = false,
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {
@@ -9,25 +10,6 @@ return {
     end,
   },
 
-  ["Pocco81/AutoSave.nvim"] = {
-    config = function()
-      local autosave = require "autosave"
-
-      autosave.setup {
-        enabled = true,
-        execution_message = "autosaved at : " .. vim.fn.strftime "%H:%M:%S",
-        events = { "InsertLeave", "TextChanged" },
-        conditions = {
-          exists = true,
-          filetype_is_not = {},
-          modifiable = true,
-        },
-        clean_command_line_interval = 2500,
-        on_off_commands = true,
-        write_all_buffers = false,
-      }
-    end,
-  },
   ["Pocco81/TrueZen.nvim"] = {
     cmd = {
       "TZAtaraxis",
@@ -59,11 +41,6 @@ return {
       require("telescope").load_extension "media_files"
     end,
   },
-  ["iamcco/markdown-preview.nvim"] = {
-    as = "markdownPreview",
-    run = "cd app && npm install",
-    ft = { "markdown" },
-  },
   ["catppuccin/nvim"] = {
     as = "catppuccin",
   },
@@ -75,7 +52,6 @@ return {
   },
   ["dhruvasagar/vim-table-mode"] = {
     as = "tablemode",
-    vim.cmd("let g:table_mode_corner_corner='+'"),
   },
   ["babaybus/DoxygenToolkit.vim"] = {
     as = "Doxygen",
@@ -106,4 +82,62 @@ return {
       require("custom.plugins.dap.nvimDapVirtualText")
     end,
   },
+  ["Pocco81/auto-save.nvim"]={
+    config = function()
+      require("auto-save").setup{
+
+      }
+    end,
+  },
+  ["folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup{}
+    end,
+  }, ["kyazdani42/nvim-web-devicons"] = {
+    config = function()
+      require("nvim-web-devicons").setup{
+        -- your personnal icons can go here (to override)
+        -- you can specify color or cterm_color instead of specifying both of them
+        -- DevIcon will be appended to `name`
+        override = {
+          zsh = {
+            icon = "",
+            color = "#428850",
+            cterm_color = "65",
+            name = "Zsh"
+          }
+        };
+        -- globally enable default icons (default to false)
+        -- will get overriden by `get_icons` option
+        default = true;
+      }
+    end,
+  },
+  ["folke/todo-comments.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup{}
+    end,
+  },
+  ["iamcco/markdown-preview.nvim"] = {
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  ["neovim/nvim-lspconfig"]={
+    config=function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
+
+  -- NERDTree Plugins
+  ["preservim/nerdtree"]={},
+  ["ryanoasis/vim-devicons"]={},
+  ["Xuyuanp/nerdtree-git-plugin"]={},
+  ["tiagofumo/vim-nerdtree-syntax-highlight"]={},
+
 }
+
+
